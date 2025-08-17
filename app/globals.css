@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 769px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Ensure text is readable on small screens */
+.split-parent {
+  max-width: 100%;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+  .split-parent {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+/* Custom Light Rays Effect */
+.custom-rays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Enhanced text lighting effects */
+.text-illuminated {
+  text-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.8),
+    0 0 20px rgba(0, 255, 255, 0.6),
+    0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+/* Glow effect for text when light rays pass over */
+.text-glow {
+  transition: text-shadow 0.3s ease;
+}
+
+.text-glow:hover {
+  text-shadow: 
+    0 0 15px rgba(0, 255, 255, 1),
+    0 0 25px rgba(0, 255, 255, 0.8),
+    0 0 35px rgba(0, 255, 255, 0.6);
+}
+
+/* Light ray interaction with text */
+.light-ray-text {
+  position: relative;
+}
+
+.light-ray-text::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
